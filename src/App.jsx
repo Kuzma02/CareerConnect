@@ -1,9 +1,11 @@
-
+import Landing from "./pages/Landing"
 
 function App() {
 
   return (
-    <h1>Hello from Vite!</h1>
+    <div>
+      <Landing />
+    </div>
   )
 }
 
