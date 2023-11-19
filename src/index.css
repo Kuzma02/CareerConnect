@@ -15,15 +15,10 @@
   background: var(--primary-color);
 }
 
-.bg-primary-hover{
-  
+.bg-primary-color:hover{
+  background: var(--primary-color-hover);
 }
 
 .main-img{
   max-width: 500px;
-}
-
-.cta-home-button:hover{
-  background: var(--primary-color-hover);
-
 }

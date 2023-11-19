@@ -7,5 +7,5 @@ export default {
   theme: {
     themes: ["dark", "winter"],
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [require("@tailwindcss/typography"), require("daisyui"), require("@tailwindcss/forms")],
 }
