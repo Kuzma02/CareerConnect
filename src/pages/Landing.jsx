@@ -1,11 +1,10 @@
-import Logo from "../assets/images/logo.png";
-import Main from "../assets/images/main.svg";
+
 
 const Landing = () => {
   return (
-    <>
-    <h1>Landing page</h1>
-    </>
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
   )
 }
 
