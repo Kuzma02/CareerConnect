@@ -5,8 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    themes: ["dark", "winter"],
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
 }
-
