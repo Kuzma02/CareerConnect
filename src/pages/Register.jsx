@@ -9,7 +9,6 @@ const initialState = {
   name: "",
   email: "",
   password: "",
-  isMember: true,
 };
 
 const Register = () => {
@@ -27,25 +26,19 @@ const Register = () => {
 
   const onHandleRegisterSubmit = (e) => {
     e.preventDefault();
-    const { name, email, password, isMember } = values;
-    if (!email || !password || (!isMember && !name)) {
+    const { name, email, password } = values;
+    if (!email || !password || !name) {
       toast.error("Please fill out all fields");
       return;
     }
-    if (isMember) {
-      dispatch(loginUser({ email: email, password: password }));
-      return;
-    }
+
     dispatch(registerUser({ name, email, password }));
-    console.log("User registered");
+    toast.success("User registered");
   };
 
-  const toggleMember = () => {
-    setValues({ ...values, isMember: !values.isMember });
-  };
   useEffect(() => {
     if (user) {
-        navigate("/");
+      navigate("/");
     }
   }, [user]);
 
@@ -158,6 +151,7 @@ const Register = () => {
             </div>
           </div>
 
+          <div className="flex items-center justify-between">
             <p className="text-sm text-gray-500">
               Already a member?{" "}
               <Link className="underline" to="/login">
@@ -171,7 +165,7 @@ const Register = () => {
             >
               Sign up
             </button>
-
+          </div>
         </form>
       </div>
     </>

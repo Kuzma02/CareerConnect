@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { getUserFromLocalStorage } from "../../utils/localStorage";
+import { addUserToLocalStorage, getUserFromLocalStorage, removeUserFromLocalStorage } from "../../utils/localStorage";
 import { toast } from "react-toastify";
+import { loginUserThunk, registerUserThunk, updateUserThunk } from "./userThunk";
 
 const initialState = {
     isLoading: false,
@@ -18,6 +19,7 @@ const initialState = {
   export const loginUser = createAsyncThunk(
     'user/loginUser',
     async (user, thunkAPI) => {
+      console.log("Hello from loginUser reducer");
       return loginUserThunk('/auth/login', user, thunkAPI);
     }
   );
@@ -53,6 +55,7 @@ const initialState = {
           const { user } = payload;
           state.isLoading = false;
           state.user = user;
+          console.log("Hello from registerUser.fulfilled");
           addUserToLocalStorage(user);
           toast.success(`Hello There ${user.name}`);
         })
@@ -67,6 +70,7 @@ const initialState = {
           const { user } = payload;
           state.isLoading = false;
           state.user = user;
+
           addUserToLocalStorage(user);
   
           toast.success(`Welcome Back ${user.name}`);

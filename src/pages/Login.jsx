@@ -1,8 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SectionTitle } from "../components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../features/user/userSlice";
+
+const initialState = {
+  email: "",
+  password: "",
+};
 
 const Login = () => {
+  const [values, setValues] = useState(initialState);
+  const { user, isLoading } = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setValues({ ...values, [name]: value });
+  };
+
+  const onHandleLoginSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = values;
+    if (!email || !password) {
+      toast.error("Please fill out all fields");
+      return;
+    }
+
+    dispatch(loginUser({ email: email, password: password }));
+    toast.success("User logged in");
+  };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
+
+
   return (
     <>
     <SectionTitle title="Login" path="Home / Login" />
@@ -16,7 +55,7 @@ const Login = () => {
         </p>
       </div>
 
-      <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+      <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4" onSubmit={onHandleLoginSubmit}>
         <div>
           <label htmlFor="email" className="sr-only">
             Email
@@ -27,6 +66,9 @@ const Login = () => {
               type="email"
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               placeholder="Enter email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
             />
 
             <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -58,6 +100,9 @@ const Login = () => {
               type="password"
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               placeholder="Enter password"
+              name="password"
+              value={values.password}
+              onChange={handleChange}
             />
 
             <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
