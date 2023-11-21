@@ -1,8 +1,11 @@
 import React from 'react'
+import { SearchForm } from '../components'
 
 const AllJobs = () => {
   return (
-    <div>AllJobs</div>
+    <div>
+      <SearchForm />
+    </div>
   )
 }
 

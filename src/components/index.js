@@ -4,3 +4,4 @@ export { default as Banner } from "./Banner";
 export { default as SectionTitle } from "./SectionTitle";
 export { default as DashboardMenu } from "./DashboardMenu";
 export { default as StatsCard } from "./StatsCard";
+export { default as SearchForm } from "./SearchForm";

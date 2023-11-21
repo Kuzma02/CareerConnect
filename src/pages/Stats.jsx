@@ -7,7 +7,7 @@ import { MdBugReport } from "react-icons/md";
 
 const Stats = () => {
   return (
-    <div className='flex justify-center gap-x-20 py-5 border-b mb-10'>
+    <div className='flex justify-center gap-x-20 py-5 border-b mb-10 max-lg:flex-col'>
       <StatsCard number="24" text="Pending applications">
         <MdPendingActions />
       </StatsCard>

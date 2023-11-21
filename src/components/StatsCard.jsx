@@ -2,7 +2,7 @@
 
 const StatsCard = ({ number, text, children }) => {
   return (
-    <div className="h-40 flex flex-col items-center justify-center w-60">
+    <div className="h-40 flex flex-col gap-y-2 items-center justify-center lg:w-60">
       <div className="text-6xl">
       {children}
       </div>
