@@ -19,7 +19,6 @@ const initialState = {
   export const loginUser = createAsyncThunk(
     'user/loginUser',
     async (user, thunkAPI) => {
-      console.log("Hello from loginUser reducer");
       return loginUserThunk('/auth/login', user, thunkAPI);
     }
   );

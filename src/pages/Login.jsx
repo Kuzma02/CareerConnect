@@ -32,12 +32,12 @@ const Login = () => {
     }
 
     dispatch(loginUser({ email: email, password: password }));
-    toast.success("User logged in");
+
   };
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      navigate("/dashboard");
     }
   }, [user]);
 
