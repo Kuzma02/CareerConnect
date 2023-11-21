@@ -22,3 +22,7 @@
 .main-img{
   max-width: 500px;
 }
+
+.dashboard-menu{
+  background: var(--primary-color);
+}

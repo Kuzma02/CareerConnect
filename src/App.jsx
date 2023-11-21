@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Landing, Login, Register, HomeLayout } from "./pages";
-import { ToastContainer, toast } from 'react-toastify';
+import { Landing, Login, Register, HomeLayout, Dashboard, Stats, AllJobs, AddJob } from "./pages";
+import { ToastContainer } from 'react-toastify';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +18,24 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+        children: [
+          {
+            index: true,
+            element: <Stats />
+          },
+          {
+            path: 'all-jobs',
+            element: <AllJobs />
+          },
+          {
+            path: 'add-job',
+            element: <AddJob />
+          },
+        ]
       },
     ],
   },
