@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Landing, Login, Register, HomeLayout, Dashboard, Stats, AllJobs, AddJob } from "./pages";
+import { Landing, Login, Register, HomeLayout, Dashboard, Stats, AllJobs, AddJob, Profile } from "./pages";
 import { ToastContainer } from 'react-toastify';
 
 const router = createBrowserRouter([
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
+        path: 'profile',
+        element: <Profile />
+      },
+      {
         path: "/dashboard",
         element: <Dashboard />,
         children: [
@@ -35,6 +39,7 @@ const router = createBrowserRouter([
             path: 'add-job',
             element: <AddJob />
           },
+          
         ]
       },
     ],

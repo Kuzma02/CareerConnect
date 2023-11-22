@@ -1,12 +1,14 @@
 import React from 'react'
 import { MdPendingActions } from "react-icons/md";
-import { StatsCard } from '../components';
+import { SectionTitle, StatsCard } from '../components';
 import { MdCheckBox } from "react-icons/md";
 import { MdBugReport } from "react-icons/md";
 
 
 const Stats = () => {
   return (
+    <>
+    <SectionTitle title="Stats" path="Home / Dashboard / Stats" />
     <div className='flex justify-center gap-x-20 py-5 border-b mb-10 max-lg:flex-col'>
       <StatsCard number="24" text="Pending applications">
         <MdPendingActions />
@@ -20,6 +22,7 @@ const Stats = () => {
         <MdBugReport />
       </StatsCard>
     </div>
+    </>
   )
 }
 

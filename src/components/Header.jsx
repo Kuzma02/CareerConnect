@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "/src/assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { FaSun } from "react-icons/fa6";
@@ -11,6 +11,15 @@ const Header = () => {
   const { user, isLoading } = useSelector((store) => store.user);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(darkMode) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+  }
+  else {
+      document.documentElement.setAttribute('data-theme', 'light');
+  }
+  }, [darkMode]);
 
   return (
     <div className="navbar bg-base-100 h-24 px-24 pt-10 max-sm:flex-col max-sm:gap-y-5 max-sm:mb-24 max-sm:px-0">
@@ -88,9 +97,9 @@ const Header = () => {
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
+                <Link to="/profile" className="justify-between">
                   Profile
-                </a>
+                </Link>
               </li>
               <li>
                 <a>Settings</a>
